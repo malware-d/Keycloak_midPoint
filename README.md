@@ -21,6 +21,8 @@ docker network create midpoint_keycloak
 
 Chạy container Keycloak với admin account:
 
+> --rm sẽ xoá luôn container khi tắt máy
+
 ```bash
 sudo docker run --rm --name keycloak -it -p 8080:8080 --net midpoint_keycloak -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:24.0.1 start-dev
 ```
@@ -52,6 +54,8 @@ cd ../..
 ## Bước 5: Khởi động midPoint
 
 Chạy midPoint container với connector đã download:
+
+> --rm sẽ xoá luôn container khi tắt máy
 
 ```bash
 docker run --rm --name midpoint -it -p 8081:8080 \
