@@ -22,7 +22,7 @@ docker network create midpoint_keycloak
 Chạy container Keycloak với admin account:
 
 ```bash
-sudo docker run -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:24.0.1 start-dev
+sudo docker run --rm --name keycloak -it -p 8080:8080 --net midpoint_keycloak -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:24.0.1 start-dev
 ```
 
 **Xác minh:** Truy cập http://localhost:8080/admin và đăng nhập với admin/admin
